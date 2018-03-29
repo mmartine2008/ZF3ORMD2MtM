@@ -18,11 +18,11 @@ return [
                     'orm_default' => [
                         'driverClass' => SQLDriver::class,
                         'params' => [
-                            'host' => 'pekin.ar.most',
+                            'host' => 'localhost',
                             'dbname' => 'gestor',
-                            'user' => 'mads_trazabilidad',
+                            'user' => 'dba',
                             'port' => '1433',
-                            'password' => 'MOST1234'
+                            'password' => 'dba'
                         ],
                     ],            
                 ],        
