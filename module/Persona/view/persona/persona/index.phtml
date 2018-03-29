@@ -1,0 +1,20 @@
+<div class="jumbotron">
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Nombre</th>
+        </tr>
+        <?php
+            foreach ($personas as $persona) {
+                echo ('<tr>');
+                echo ('<td>');
+                echo ($persona->getId());
+                echo ('</td>');  
+                echo ('<td>');
+                echo ($persona->getNombre());
+                echo ('</td>');                
+                echo ('</tr>');
+            }        
+        ?>
+    </table>
+</div>

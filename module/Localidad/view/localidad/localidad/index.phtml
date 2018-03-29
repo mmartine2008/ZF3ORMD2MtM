@@ -1,0 +1,20 @@
+<div class="jumbotron">
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Nombre</th>
+        </tr>
+        <?php
+            foreach ($localidades as $localidad) {
+                echo ('<tr>');
+                echo ('<td>');
+                echo ($localidad->getId());
+                echo ('</td>');  
+                echo ('<td>');
+                echo ($localidad->getNombre());
+                echo ('</td>');                
+                echo ('</tr>');
+            }        
+        ?>
+    </table>
+</div>

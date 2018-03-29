@@ -1,0 +1,73 @@
+<?php
+    Use DBAL\Entity\Persona as Persona;
+    Use DBAL\Entity\Proyecto as Proyecto;
+
+    function mostrarProyectos(Persona $persona)
+    {
+        $proyectos = $persona->getProyectos();
+        if (count($proyectos) > 0)
+        {
+            
+            echo('<ul>');
+            foreach($proyectos as $proyecto)
+            {
+                $nombre = $proyecto->getNombre();
+                echo ('<li>'.$nombre.'</li>');
+            }
+            echo('</ul>');
+            
+        }
+        else
+        {
+            echo('<h5>Ninguno</h5>');
+        }        
+    }
+?>
+<div class="jumbotron">
+    <form action="<?php $this->url('persona_proyecto'); ?>" method="post">
+    <label>Persona: 
+        <?php if (count($personas) > 0) { ?>
+        <select name="persona">
+            <?php 
+                foreach ($personas as $persona) 
+                {
+                    $value = $persona->getId();
+                    $nombre = $persona->getNombre();
+                    echo ("<option value=\"$value\">$nombre</option>");
+                }
+            ?>
+        </select>
+        <?php } ?>
+        
+    </label>
+    <label>Proyecto: 
+        <?php if (count($proyectos) > 0) { ?>
+        <select name="proyecto">
+            <?php 
+                foreach ($proyectos as $proyecto) 
+                {
+                    $value = $proyecto->getId();
+                    $nombre = $proyecto->getNombre();
+                    echo ("<option value=\"$value\">$nombre</option>");
+                }
+            ?>
+        </select>
+        <?php } ?>
+        
+    </label> 
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<?php
+    foreach ($personas as $persona)
+    {
+        echo('<div class="jumbotron">');
+        echo('<h4>Proyectos a los que pertenece '.$persona->getNombre().'</h4>');
+        
+        mostrarProyectos($persona);
+        
+        echo('</div>');
+    }
+
+
+
