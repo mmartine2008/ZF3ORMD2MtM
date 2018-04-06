@@ -29,12 +29,10 @@ class Persona {
     
    /**
      * Many Features have One Product.
-    * @ORM\Column(name="IdLocalidad", type="integer")
-     * @ORM\ManyToOne(targetEntity="Localidad", inversedBy="personas")
+     * @ORM\ManyToOne(targetEntity="Localidad")
      * @ORM\JoinColumn(name="idLocalidad", referencedColumnName="idLocalidad")
      */    
-    private $IdLocalidad;
- 
+    private $localidad;
     
    /**
      * @ORM\ManyToMany(targetEntity="Proyecto", inversedBy="personas")
@@ -84,6 +82,16 @@ class Persona {
     public function getProyectos() 
     {
         return $this->proyectos;
+    }
+    
+    public function getLocalidad()
+    {
+        return $this->localidad;
+    }
+    
+    public function setLocalidad(Localidad $localidad)
+    {
+        $this->localidad = $localidad;
     }
     
 }

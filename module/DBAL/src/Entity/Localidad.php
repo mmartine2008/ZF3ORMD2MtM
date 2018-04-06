@@ -60,5 +60,6 @@ class Localidad {
     {
         $this->personas[] = $persona;
         $persona->setIdLocalidad($this->getId());
+        $persona->setLocalidad($this);
     }
 }

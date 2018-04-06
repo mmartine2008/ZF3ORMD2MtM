@@ -3,6 +3,7 @@
         <tr>
             <th>id</th>
             <th>Nombre</th>
+            <th>Localidad</th>
         </tr>
         <?php
             foreach ($personas as $persona) {
@@ -12,7 +13,18 @@
                 echo ('</td>');  
                 echo ('<td>');
                 echo ($persona->getNombre());
-                echo ('</td>');                
+                echo ('</td>'); 
+                echo ('<td>');
+                $localidad = $persona->getLocalidad();
+                if ($localidad)
+                {
+                    echo ($localidad->getNombre());
+                } else
+                {
+                    echo ('No def.');
+                }    
+                
+                echo ('</td>');                 
                 echo ('</tr>');
             }        
         ?>
