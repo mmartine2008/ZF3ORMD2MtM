@@ -50,13 +50,32 @@ class IndexController extends AbstractActionController
 //        
 //        return new ViewModel();
 //    } 
-    
+/*    
     public function loadAction()
     {
     
         $persona = new Persona();
         $persona->setNombre('Fulanito');
         $this->getEntityManager()->persist($persona);
+        
+        $this->getEntityManager()
+                        ->flush();
+        
+        return new ViewModel();
+    } 
+*/
+    public function loadAction()
+    {
+    
+        $persona = $this->getEntityManager()
+                ->getRepository(Persona::class)->findByNombre('Mateo');
+
+        $localidad = $this->getEntityManager()
+                ->getRepository(Localidad::class)->findByNombre('Olavarria');
+	
+	$persona[0]->setLocalidad($localidad[0]);
+
+        $this->getEntityManager()->persist($persona[0]);
         
         $this->getEntityManager()
                         ->flush();

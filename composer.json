@@ -31,7 +31,8 @@
             "Localidad\\": "module/Localidad/src/",
             "Proyecto\\": "module/Proyecto/src/",
             "Persona\\": "module/Persona/src/",
-            "DBAL\\": "module/DBAL/src/"
+            "DBAL\\": "module/DBAL/src/",
+            "Manifiestos\\": "module/Manifiestos/src/"
         }
     },
     "autoload-dev": {

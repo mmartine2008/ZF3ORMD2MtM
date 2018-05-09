@@ -1,8 +1,23 @@
+<?php
+	function mostrarPersonas($localidad)
+	{
+		$salida = [];
+		$personas = $localidad->getPersonas();
+		foreach ($personas as $persona)
+		{
+			$salida[] = $persona->getNombre();
+		}
+		$salida = implode('|', $salida);
+		return $salida;
+	}
+
+?>
 <div class="jumbotron">
     <table>
         <tr>
             <th>id</th>
             <th>Nombre</th>
+	    <th>Personas</th>
         </tr>
         <?php
             foreach ($localidades as $localidad) {
@@ -12,6 +27,9 @@
                 echo ('</td>');  
                 echo ('<td>');
                 echo ($localidad->getNombre());
+                echo ('</td>');                
+                echo ('<td>');
+                echo (mostrarPersonas($localidad));
                 echo ('</td>');                
                 echo ('</tr>');
             }        

@@ -4,6 +4,7 @@ namespace DBAL\Entity;
 use DBAL\Entity\Localidad as Localidad;
 use DBAL\Entity\Proyecto as Proyecto;
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Description of Persona
  *
@@ -52,22 +53,7 @@ class Persona {
     {
         return $this->nombre;
     }     
-
-    public function getIdLocalidad()
-    {
-        return $this->IdLocalidad;
-    }
-    
-    public function setIdLocalidad($IdLocalidad)
-    {
-        $this->IdLocalidad = $IdLocalidad;
-    }
-    
-    public function setId($Id)
-    {
-        $this->Id = $Id;
-    } 
-    
+  
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
@@ -92,6 +78,7 @@ class Persona {
     public function setLocalidad(Localidad $localidad)
     {
         $this->localidad = $localidad;
+	$localidad->addPersona($this);
     }
     
 }

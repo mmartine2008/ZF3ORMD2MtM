@@ -28,7 +28,7 @@ class Localidad {
 
     /**
      * 
-     * @ORM\OneToMany(targetEntity="\DBAL\Entity\Persona", mappedBy="idLocalidad")
+     * @ORM\OneToMany(targetEntity="\DBAL\Entity\Persona", mappedBy="localidad")
      */
     private $personas;
 
@@ -59,7 +59,16 @@ class Localidad {
     public function addPersona(Persona $persona)
     {
         $this->personas[] = $persona;
-        $persona->setIdLocalidad($this->getId());
-        $persona->setLocalidad($this);
+        //$persona->setIdLocalidad($this->getId());
+        //$persona->setLocalidad($this);
     }
+
+    public function getPersonas()
+    {
+	return $this->personas;
+
+     }
+	
+
+
 }

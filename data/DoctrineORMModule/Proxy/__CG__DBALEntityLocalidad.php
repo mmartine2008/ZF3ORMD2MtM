@@ -228,4 +228,15 @@ class Localidad extends \DBAL\Entity\Localidad implements \Doctrine\ORM\Proxy\Pr
         return parent::addPersona($persona);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function getPersonas()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPersonas', []);
+
+        return parent::getPersonas();
+    }
+
 }
